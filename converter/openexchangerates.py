@@ -1,4 +1,5 @@
 import requests
+from decimal import Decimal
 
 
 OPENEXCHANGERATES_API_ID = '7df39ba4d20b4c7a82a08c6f2bf2d34e'
@@ -20,7 +21,8 @@ def currencies_names():
 #function for getting currencies rates to usd
 def get_rates():
     json = get_json('latest.json')
-    rates = json['rates']
+    rates_float = json['rates']
+    TENPLACES = Decimal('10') ** -10
+    rates = {k: Decimal(v).quantize(TENPLACES) for (k, v) in rates_float.items()}
     return rates
 
-print(currencies_names())

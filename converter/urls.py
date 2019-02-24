@@ -1,6 +1,7 @@
-from django.urls import path, include
+from django.conf.urls import url, include
 from . import views
 
 urlpatterns = [
-    path('', views.show)
+    url(r'^$', views.show),
+    url(r'^update/$', views.update)
     ]
