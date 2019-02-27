@@ -6,6 +6,7 @@ from converter.models import Currency
 def update_rates_from_api():
     Currency.objects.update_rates_from_api()
 
+
 @shared_task
 def add(x,y):
     return x+y

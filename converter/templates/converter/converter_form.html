@@ -1,0 +1,56 @@
+<form class="form-horizontal" method="POST" action="{% url 'redirector' %}">
+
+{% csrf_token %}
+
+<fieldset>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="amount">Convert</label>
+  <div class="col-md-10">
+  <input id="amount" name="amount" type="text" placeholder="amount" class="form-control input-md"
+  {% if amount %}
+    value="{{ amount }}"
+  {% endif %}>
+  </div>
+</div>
+
+    <!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="currency_from">From</label>
+  <div class="col-md-10">
+    <select id="currency_from" name="from" class="form-control">
+      {% for currency in currencies %}
+        <option value={{ currency.code }}
+          {% if from and from.id == currency.id %}
+            selected="selected"
+          {% endif %}>{{ currency.code }} - {{ currency.full_name }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Select Basic -->
+<div class="form-group">
+  <label class="col-md-2 control-label" for="currency_to">To</label>
+  <div class="col-md-10">
+    <select id="currency_to" name="to" class="form-control">
+      {% for currency in currencies %}
+        <option value={{ currency.code }}
+          {% if to and to.id == currency.id %}
+            selected="selected"
+          {% endif %}>{{ currency.code }} - {{ currency.full_name }}
+         </option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+
+<!-- Button -->
+<div class="form-group">
+  <div class="col-md-2 col-md-offset-5">
+    <input type="submit" id="submit" class="btn btn-primary btn-lg" value="Convert">
+  </div>
+</div>
+</fieldset>
+</form>

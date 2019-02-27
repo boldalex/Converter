@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load converter_form %}
+
+{% load staticfiles %}
+
+{% block results %}
+
+    
+{% if success %}
+    <div class="panel panel-primary">
+{% elif error %}
+    <div class="panel panel-danger">
+{% endif %}
+
+  <div class="panel-heading">
+    <h3 class="panel-title">
+        {% if success %}
+            Result
+        {% elif error %}
+            Error
+        {% endif %}
+    </h3>
+  </div>
+
+  <div class="panel-body">
+    {% if success %}
+    <h3><strong>{{ amount }}</strong> {{ from_.code }} is <strong>{{ result }}</strong> {{ to.code }}</h3>
+        
+    {% elif error %}
+        {{ error_message }}
+    {% endif %}
+  </div>
+
+</div>
+    
+{% endblock results %}
+
+{% block jumbotron_block %}
+    {% get_converter_form from_ to amount %}
+{% endblock jumbotron_block %}

@@ -14,11 +14,11 @@ app.autodiscover_tasks()
 
 @app.task(bind=True)
 def debug_task(self):
-    print('Request: {0!r}'.format(self.request))
+    print('Hello! Danic')
 
-#app.conf.beat_schedule = {
-    #'update_db_rates': {
-    #     'task': 'converter.tasks.update_rates_from_api',
-     #    'schedule': timedelta(seconds=60 * 60)
-    #}
-#}
+app.conf.beat_schedule = {
+    'update_db_rates': {
+         'task': 'converter.tasks.update_rates_from_api',
+         'schedule': timedelta(seconds=60*60)
+    }
+}

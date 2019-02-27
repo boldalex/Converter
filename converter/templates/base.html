@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+	<head>
+		<title>Currency converter</title>
+
+		<link rel="stylesheet" type="text/css" href="{% static "converter/css/bootstrap.min.css" %}">
+	</head>
+	
+	<body>
+
+	 <div class="container col-md-offset-4 col-md-4">
+
+      <div class="header clearfix">
+        <h3 class="text-muted">Currency Converter</h3>
+      </div>
+
+	 	{% block results %}	
+	 	{% endblock results %}
+
+	<div class="jumbotron">
+		{% block jumbotron_block %}
+		{% endblock jumbotron_block %}
+	</div>
+	</div>
+	
+	<!-- <script type="text/javascript" src="{% static "converter/js/bootstrap.min.js" %}"></script> -->
+
+	</body>
+</html>
