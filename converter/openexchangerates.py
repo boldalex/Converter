@@ -1,8 +1,7 @@
 import requests
 from decimal import Decimal
 
-
-OPENEXCHANGERATES_API_ID = '7df39ba4d20b4c7a82a08c6f2bf2d34e'
+OPENEXCHANGERATES_API_ID = <YOUR_API_ID>
 
 #function for getting json response from Openexchangerates.org api
 def get_json(route):

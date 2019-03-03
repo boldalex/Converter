@@ -2,17 +2,18 @@
 {% load staticfiles %}
 <html>
 	<head>
+		<meta charset="utf-8">
 		<title>Currency converter</title>
-
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="{% static "converter/css/bootstrap.min.css" %}">
 	</head>
 	
-	<body>
+	<body class="bg-light">
 
-	 <div class="container col-md-offset-4 col-md-4">
+	 <div class="container-fluid col-md-6">
 
-      <div class="header clearfix">
-        <h3 class="text-muted">Currency Converter</h3>
+      <div class="header">
+        <h1 class="text-success">Currency Converter</h1>
       </div>
 
 	 	{% block results %}	
@@ -23,8 +24,9 @@
 		{% endblock jumbotron_block %}
 	</div>
 	</div>
+	<script type="text/javascript" src="{% static "converter/js/bootstrap.min.js" %}"></script>
 	
-	<!-- <script type="text/javascript" src="{% static "converter/js/bootstrap.min.js" %}"></script> -->
+
 
 	</body>
 </html>
